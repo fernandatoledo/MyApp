@@ -1,4 +1,4 @@
-package com.myapp.development
+package com.rootstrap.myapp.qa
 
 import android.app.Application
 import android.content.res.Configuration

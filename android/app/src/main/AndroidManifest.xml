@@ -27,6 +27,9 @@
         <data android:scheme="MyApp"/>
         <data android:scheme="com.myapp.development"/>
         <data android:scheme="exp+obytesapp"/>
+        <data android:scheme="com.rootstrap.myapp.staging"/>
+        <data android:scheme="exp+fernanda-test-my-app"/>
+        <data android:scheme="com.rootstrap.myapp.qa"/>
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>
