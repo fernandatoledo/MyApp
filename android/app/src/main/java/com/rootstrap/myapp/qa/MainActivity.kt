@@ -1,4 +1,4 @@
-package com.myapp.development
+package com.rootstrap.myapp.qa
 
 import android.os.Build
 import android.os.Bundle

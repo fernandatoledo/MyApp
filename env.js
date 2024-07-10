@@ -33,11 +33,11 @@ require('dotenv').config({
 
 // TODO: Replace these values with your own
 
-const BUNDLE_ID = 'com.myapp'; // ios bundle id
-const PACKAGE = 'com.myapp'; // android package name
+const BUNDLE_ID = 'com.rootstrap.myapp'; // ios bundle id
+const PACKAGE = 'com.rootstrap.myapp'; // android package name
 const NAME = 'MyApp'; // app name
-const EXPO_ACCOUNT_OWNER = 'expo-owner'; // expo account owner
-const EAS_PROJECT_ID = 'c3e1075b-6fe7-4686-aa49-35b46a229044'; // eas project id
+const EXPO_ACCOUNT_OWNER = 'rsdevs'; // expo account owner
+const EAS_PROJECT_ID = '64cb622c-4ad0-457e-94ed-03842b8c03d7'; // eas project id
 const SCHEME = 'MyApp'; // app scheme
 
 /**
@@ -70,7 +70,7 @@ const withEnvSuffix = (name) => {
  */
 
 const client = z.object({
-  APP_ENV: z.enum(['development', 'staging', 'production']),
+  APP_ENV: z.enum(['development', 'qa', 'staging', 'production']),
   NAME: z.string(),
   SCHEME: z.string(),
   BUNDLE_ID: z.string(),
