@@ -12,6 +12,7 @@ Mobile App </h1>
 - [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall), required only for macOS or Linux users
 - [Pnpm](https://pnpm.io/installation)
 - [VS Code Editor](https://code.visualstudio.com/download) ⚠️ Make sure to install all recommended extension from `.vscode/extensions.json`
+- [EAS](/EAS.md)
 
 ## 👋 Quick start
 
