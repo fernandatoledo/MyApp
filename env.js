@@ -81,7 +81,6 @@ const client = z.object({
   API_URL: z.string(),
   VAR_NUMBER: z.number(),
   VAR_BOOL: z.boolean(),
-  GOOGLE_MAPS_KEY: z.string(),
 });
 
 const buildTime = z.object({
@@ -89,6 +88,7 @@ const buildTime = z.object({
   EAS_PROJECT_ID: z.string(),
   // ADD YOUR BUILD TIME ENV VARS HERE
   SECRET_KEY: z.string(),
+  GOOGLE_MAPS_KEY: z.string(),
 });
 
 /**
@@ -106,7 +106,6 @@ const _clientEnv = {
   API_URL: process.env.API_URL,
   VAR_NUMBER: Number(process.env.VAR_NUMBER),
   VAR_BOOL: process.env.VAR_BOOL === 'true',
-  GOOGLE_MAPS_KEY: process.env.GOOGLE_MAPS_KEY,
 };
 
 /**
@@ -117,6 +116,7 @@ const _buildTimeEnv = {
   EAS_PROJECT_ID,
   // ADD YOUR ENV VARS HERE TOO
   SECRET_KEY: process.env.SECRET_KEY,
+  GOOGLE_MAPS_KEY: process.env.GOOGLE_MAPS_KEY,
 };
 
 /**

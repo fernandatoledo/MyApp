@@ -24,6 +24,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ['**/*'],
   ios: {
+    config: {
+      googleMapsApiKey: Env.GOOGLE_MAPS_KEY,
+    },
     supportsTablet: true,
     bundleIdentifier: Env.BUNDLE_ID,
   },
