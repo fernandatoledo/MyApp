@@ -17,7 +17,7 @@ env:
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 jobs:
-  tests:
+  sonar:
     runs-on: ubuntu-latest
     steps:
       - name: 📦 Checkout project repo
@@ -29,7 +29,7 @@ jobs:
         uses: ./.github/actions/setup-node-pnpm-install
 
       - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+        uses: warchant/setup-sonar-scanner@v3
 
       - name: Run Sonarqube analysis
         run: |
