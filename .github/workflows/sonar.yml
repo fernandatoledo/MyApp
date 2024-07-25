@@ -45,5 +45,5 @@ jobs:
             -Dsonar.sonar.sourceEncoding=UTF-8 \
             -Dsonar.sonar.sources=./src
             -Dsonar.projectBaseDir=. \
-            # -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-            # -Dsonar.coverage.exclusions=**/scripts/**,**/network/**,**/storage/**,**/**.config.js,**/rnb-cli/**,**/rnbv.js,**/android/**,**/**.styles.ts,**/tests/**,**/provider/**,**/__mocks__/**,**/__tests__/**,**/httpClient/**,**/queryClient/index.ts,**/hooks/*,**/jest-setup.js,**/azureClient/**,**/context/Theme/**,**/constants/**,**/hooks/useRootNavigation.ts,**/assets/**,**/locale/**,**/test.tsx,**/*.test.tsx
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.coverage.exclusions=**/scripts/**,**/network/**,**/storage/**,**/**.config.js,**/rnb-cli/**,**/rnbv.js,**/android/**,**/**.styles.ts,**/tests/**,**/provider/**,**/__mocks__/**,**/__tests__/**,**/httpClient/**,**/queryClient/index.ts,**/hooks/*,**/jest-setup.js,**/azureClient/**,**/context/Theme/**,**/constants/**,**/hooks/useRootNavigation.ts,**/assets/**,**/locale/**,**/test.tsx,**/*.test.tsx
