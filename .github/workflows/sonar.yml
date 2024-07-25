@@ -1,0 +1,49 @@
+name: SonarQube analysis
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+      - master
+      - staging
+      - qa
+      - development
+
+env:
+  SONAR_PROJECT: myapp-delete
+  SONAR_URL: ${{ secrets.SONAR_URL }}
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📦 Checkout project repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup Node + PNPM + install deps
+        uses: ./.github/actions/setup-node-pnpm-install
+
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+
+      - name: Run Sonarqube analysis
+        run: |
+          sonar-scanner \
+            -Dsonar.qualitygate.wait=true \
+            -Dsonar.host.url=$SONAR_URL \
+            -Dsonar.token=$SONAR_TOKEN \
+            -Dsonar.projectKey=$SONAR_PROJECT \
+            -Dsonar.scm.provider=git \
+            -Dsonar.java.binaries=/tmp \
+            -Dsonar.nodejs.executable=$(which node) \
+            -Dsonar.projectVersion=$(echo $GITHUB_SHA | cut -c1-8) \
+            -Dsonar.sonar.sourceEncoding=UTF-8 \
+            -Dsonar.sonar.sources=. \
+            -Dsonar.projectBaseDir=. \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.coverage.exclusions=**/scripts/**,**/network/**,**/storage/**,**/**.config.js,**/rnb-cli/**,**/rnbv.js,**/android/**,**/**.styles.ts,**/tests/**,**/provider/**,**/__mocks__/**,**/__tests__/**,**/httpClient/**,**/queryClient/index.ts,**/hooks/*,**/jest-setup.js,**/azureClient/**,**/context/Theme/**,**/constants/**,**/hooks/useRootNavigation.ts,**/assets/**,**/locale/**,**/test.tsx,**/*.test.tsx
