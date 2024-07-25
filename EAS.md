@@ -13,3 +13,26 @@ Once you've completed the guide you'll be able to submit to the store your EAS b
 `eas submit --platform android`
 
 ### AppStore
+
+1. Ensure your credentials are configured correctly in EAS. You can do this by running the following command in your terminal:
+
+`eas credentials`
+
+Follow the prompts to authenticate and select your Apple Developer account.
+
+2. Build your app using Expo and EAS:
+
+`eas build --platform ios`
+
+This command initiates the build process for iOS using Expo Application Services.
+
+3. Submit Your Build to the App Store
+   Once your build is complete, you can submit it to the App Store using the following command:
+
+`eas submit --platform ios`
+
+This command will handle the submission of your build to the App Store using the credentials and configuration you provided.
+
+### Additional Resources
+
+For more detailed instructions on setting up your Apple Developer account, certificates, and provisioning profiles, refer to the [EAS Submits](https://docs.expo.dev/submit/introduction/) docs.
