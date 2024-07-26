@@ -36,14 +36,11 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
         with:
           args: >
+            -Dsonar.sonar.sources=./src 
             -Dsonar.qualitygate.wait=true
-            -Dsonar.projectKey=$SONAR_PROJECT
-            -Dsonar.scm.provider=git
-            -Dsonar.java.binaries=/tmp
-            -Dsonar.nodejs.executable=$(which node)
-            -Dsonar.projectVersion=$(echo $GITHUB_SHA | cut -c1-8)
-            -Dsonar.sonar.sourceEncoding=UTF-8
-            -Dsonar.sonar.sources=.
             -Dsonar.projectBaseDir=.
+            -Dsonar.verbose=false
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT }}
+            -Dsonar.sonar.sourceEncoding=UTF-8
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
-            -Dsonar.coverage.exclusions=**/scripts/**,**/network/**,**/storage/**,**/**.config.js,**/rnb-cli/**,**/rnbv.js,**/android/**,**/**.styles.ts,**/tests/**,**/provider/**,**/__mocks__/**,**/__tests__/**,**/httpClient/**,**/queryClient/index.ts,**/hooks/*,**/jest-setup.js,**/azureClient/**,**/context/Theme/**,**/constants/**,**/hooks/useRootNavigation.ts,**/assets/**,**/locale/**,**/test.tsx,**/*.test.tsx
+            -Dsonar.coverage.exclusions=**/storage/**,**/**.config.js,**/*.test.tsx
