@@ -8,6 +8,8 @@ import Animated, {
 } from 'react-native-reanimated';
 import { twMerge } from 'tailwind-merge';
 
+import { PROGRESS_BAR, PROGRESS_BAR_CONTAINER } from '@/constants/test-ids';
+
 type Props = {
   initialProgress?: number;
   className?: string;
@@ -43,8 +45,11 @@ export const ProgressBar = forwardRef<ProgressBarRef, Props>(
       };
     });
     return (
-      <View className={twMerge(` bg-[#EAEAEA]`, className)}>
-        <Animated.View style={style} />
+      <View
+        testID={PROGRESS_BAR_CONTAINER}
+        className={twMerge(` bg-[#EAEAEA]`, className)}
+      >
+        <Animated.View testID={PROGRESS_BAR} style={style} />
       </View>
     );
   }
