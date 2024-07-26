@@ -12,7 +12,6 @@ Mobile App </h1>
 - [Watchman](https://facebook.github.io/watchman/docs/install#buildinstall), required only for macOS or Linux users
 - [Pnpm](https://pnpm.io/installation)
 - [VS Code Editor](https://code.visualstudio.com/download) ⚠️ Make sure to install all recommended extension from `.vscode/extensions.json`
-- [EAS](/EAS.md)
 
 ## 👋 Quick start
 
@@ -38,6 +37,16 @@ To run the app on Android
 pnpm android
 ```
 
+## Initial Setup
+
+### Expo Application Services
+
+To be able to use Expo Application Services to upload your app to App Store and Google Play Store follow instructions from this [guide](EAS.md).
+
+### SonarQube
+
+SonarQube is an open-source platform for continuous inspection of code quality. It performs automatic reviews to detect bugs, code smells, and security vulnerabilities. Rootstrap has a SonarQube instance to improve the quality of the software we develop. On each PR, a GitHub Action is triggered to perform the analysis. To set up SonarQube correctly, you need to add the `SONAR_TOKEN`, `SONAR_URL`, and `SONAR_PROJECT` secrets to the repository. Additionally, you must select the quality gate named `ReactNativeTemplate` for your project on SonarQube. In case you're using this project outside Rootstrap and you're not planning to use SonarQube the sonar scanner [worflow](.github/workflows/sonar.yml) should be deleted.
+
 ## ✍️ Documentation
 
 - [Rules and Conventions](https://starter.obytes.com/getting-started/rules-and-conventions/)
@@ -48,4 +57,3 @@ pnpm android
 - [Forms](https://starter.obytes.com/ui-and-theme/Forms)
 - [Data fetching](https://starter.obytes.com/guides/data-fetching)
 - [Contribute to starter](https://starter.obytes.com/how-to-contribute/)
-- [EAS](EAS.md)
