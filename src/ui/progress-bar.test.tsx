@@ -22,6 +22,8 @@ describe('ProgressBar component', () => {
   });
 
   it('setProgress function works correctly', async () => {
+    const finalValue = 75;
+    const progressAnimationDuration = 250;
     const ref = createRef<ProgressBarRef>();
     render(<ProgressBar ref={ref} initialProgress={0} />);
     const progressBar = screen.getByTestId(PROGRESS_BAR);
@@ -30,11 +32,11 @@ describe('ProgressBar component', () => {
     if (ref.current) {
       expect(getAnimatedStyle(progressBar)).toMatchObject({ width: '0%' });
       jest.useFakeTimers();
-      ref.current.setProgress(75);
-      jest.advanceTimersByTime(250); // Duration of the animation
+      ref.current.setProgress(finalValue);
+      jest.advanceTimersByTime(progressAnimationDuration); // Duration of the animation
       const updatedProgressBar = await screen.findByTestId(PROGRESS_BAR);
       expect(getAnimatedStyle(updatedProgressBar)).toMatchObject({
-        width: '75%',
+        width: `${finalValue}%`,
       });
     }
   });
