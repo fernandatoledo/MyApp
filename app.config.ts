@@ -24,6 +24,9 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   assetBundlePatterns: ['**/*'],
   ios: {
+    config: {
+      googleMapsApiKey: Env.GOOGLE_MAPS_KEY,
+    },
     supportsTablet: true,
     bundleIdentifier: Env.BUNDLE_ID,
   },
@@ -31,6 +34,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     typedRoutes: true,
   },
   android: {
+    config: {
+      googleMaps: {
+        apiKey: Env.GOOGLE_MAPS_KEY,
+      },
+    },
     adaptiveIcon: {
       foregroundImage: './assets/adaptive-icon.png',
       backgroundColor: '#2E3C4B',

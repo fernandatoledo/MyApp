@@ -41,6 +41,14 @@ export default function TabLayout() {
           tabBarTestID: 'feed-tab',
         }}
       />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: 'Map',
+          tabBarIcon: ({ color }) => <FeedIcon color={color} />,
+          tabBarTestID: 'map-tab',
+        }}
+      />
 
       <Tabs.Screen
         name="style"

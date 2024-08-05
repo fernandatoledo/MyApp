@@ -16,7 +16,9 @@ const z = require('zod');
 
 const packageJSON = require('./package.json');
 const path = require('path');
-const APP_ENV = process.env.APP_ENV ?? 'development';
+const APP_ENV = process.env.APP_ENV ?? 'staging';
+
+console.log('APP_ENV', APP_ENV);
 const envPath = path.resolve(__dirname, `.env.${APP_ENV}`);
 
 require('dotenv').config({
@@ -88,6 +90,7 @@ const buildTime = z.object({
   EAS_PROJECT_ID: z.string(),
   // ADD YOUR BUILD TIME ENV VARS HERE
   SECRET_KEY: z.string(),
+  GOOGLE_MAPS_KEY: z.string(),
 });
 
 /**
@@ -115,6 +118,7 @@ const _buildTimeEnv = {
   EAS_PROJECT_ID,
   // ADD YOUR ENV VARS HERE TOO
   SECRET_KEY: process.env.SECRET_KEY,
+  GOOGLE_MAPS_KEY: process.env.GOOGLE_MAPS_KEY,
 };
 
 /**
